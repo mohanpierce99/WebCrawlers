@@ -31,6 +31,10 @@ git clone this Repo <a href='https://github.com/mohanpierce99/WebCrawlers-MadStr
 <h4>Usage Task-1 Shopmango </h4>
 Scaps data from https://shop.mango.com/in/women & https://shop.mango.com/in/men
 
+<h3 style='color:red;text-align:center'>Categories with spaces should be given as "coats%26amp;jackets" (double quotes neccessary)  for Coats & jackets</h3>
+
+&ct=//replace with categories below ts
+
 Women categories :
 
 Coats
@@ -96,11 +100,76 @@ As all the resources are lazy loaded To scrape the data from the website's dom i
 
 However ih've written the algorithm for hover and getting data from dom as well 
 
-http://localhost:3472/shopmango/array/women?type=clothing&ct=Jumpsuits
+http://localhost:3472/shopmango/array/men?type=clothing&ct=coats
 
 It does an infinite scroll to trigger and load all the lazy loaded data and does an automated hover of 300ms on each product to load in their data
 
 But its slow compared to the previous algo.
+
+
+<h4>Task 2 -George </h4>
+<h3 style='color:red;text-align:center'>Categories with spaces should be given as "coats%26amp;jackets" (double quotes neccessary)  for Coats & jackets</h3>
+
+Men categories:
+Accessories
+Coats&Jackets
+FancyDress
+Jeans
+Joggers
+Jumpers&Cardigans
+Nightwear&Slippers
+Shirts
+Shorts
+Socks
+Sportswear
+Suits&Tailoring
+Sweatshirts&Hoodies
+Swimwear
+Trousers
+T-Shirts&Polos
+Underwear
+
+Women categories
+Accessories
+Coats & Jackets
+Dresses
+Fancy Dress
+Jeans & Jeggings
+Jumpers & Cardigans
+Jumpsuits & Playsuits
+Leggings
+Maternity
+Nightwear & Slippers
+Shirts & Blouses
+Skirts & Shorts
+Sportswear & Joggers
+Socks & Tights
+Swimwear
+Tops
+Trousers
+
+<h2>Usage</h2>
+Similar to the first one but here
+http://localhost:3472/george/men?type=clothing&ct=Coats & Jackets 
+
+
+<h3>Method</h3>
+
+Similar to the first one, here tracking the vulnerabity was easier and it followed a pattern
+https://direct.asda.com/on/demandware.store/Sites-ASDA-Site/default/SearchDEP-Show?cgid=${ctid}&start=0&sz
+
+ctid is the category id which is in the url of each page so retieving it and giving it to the link would give all the items for the category including the ones that are lazy loaded for eg.Dresses
+
+https://direct.asda.com/george/women/dresses/D1M1G20C1,default,sc.html -original page
+
+getting the category and voila !
+
+https://direct.asda.com/on/demandware.store/Sites-ASDA-Site/default/SearchDEP-Show?cgid=D1M1G20C1&start=0&sz
+
+Easy! Doing this in a loop for all the pages needed would finish the job
+
+
+
 
 
 
