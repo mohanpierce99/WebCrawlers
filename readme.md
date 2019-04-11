@@ -84,13 +84,15 @@ We transform the link into
 
 https://shop.mango.com/services/cataloglist/filtersProducts/IN/he/sections_he.prendas_he/?idSubSection=abrigos_he&menu=familia;106&pageNum=1 which would give maximum no of items in page no and do a await ajax request and get the json and process it
 
-This process is repeated for page 2
-ttps://shop.mango.com/services/cataloglist/filtersProducts/IN/he/sections_he.prendas_he/?idSubSection=abrigos_he&menu=familia;106&pageNum=2
+This process is repeated for page 2(click to see the response thats gonna be processed)
+https://shop.mango.com/services/cataloglist/filtersProducts/IN/he/sections_he.prendas_he/?idSubSection=abrigos_he&menu=familia;106&pageNum=2
 and so on
 untill at one point response would be null
 Now that we have scraped all the data we move to next link in the stack and so on 
 
 Everything is asynchronous and all the racial conditions have been exceptionally handled
+
+
 
 
 
