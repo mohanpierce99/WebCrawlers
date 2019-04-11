@@ -11,6 +11,12 @@ Once installed lets get started !!
 git clone this Repo <a href='https://github.com/mohanpierce99/WebCrawlers-MadStreetDen.git'>Copy this address</a>
 <br>
 <br>
+next navigate to the root of the project in cmd and type
+
+npm install
+
+this will download all the dependancies
+
  Now you would have all the files in place !
  
  To run the rest api server all u need to do is type node app.js in the root dir of the project in a cmd. This would initialize the express server.
