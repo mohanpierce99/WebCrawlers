@@ -39,31 +39,31 @@ sample: http://localhost:3472/george/men?type=clothing&ct="coats%26amp;jackets"
 
 Women categories :
 
-Coats
-Jackets
-Suits
-Dresses
-Jumpsuits
-Cardigans and sweaters
-Shirts
-T-shirts and tops
-Trousers
-Jeans
-Skirts
+Coats,
+Jackets,
+Suits,
+Dresses,
+Jumpsuits,
+Cardigans and sweaters,
+Shirts,
+T-shirts and tops,
+Trousers,
+Jeans,
+Skirts,
 
 Men categories :
 
-Coats
-Jackets
-Blazers
-Suits
-Cardigans and sweaters
-Sweatshirts
-Shirts
-T-shirts
-Trousers
-Jeans
-Underwear
+Coats,
+Jackets,
+Blazers,
+Suits,
+Cardigans and sweaters,
+Sweatshirts,
+Shirts,
+T-shirts,
+Trousers,
+Jeans,
+Underwear,
 
 http://localhost:3472/shopmango/women?type=clothing, Brings back all data from all the categories
 http://localhost:3472/shopmango/women?type=clothing&ct=t-shirts,jackets,suits, brings back the mentioned categories
@@ -115,42 +115,42 @@ sample: http://localhost:3472/george/men?type=clothing&ct="coats%26amp;jackets"
 
 
 Men categories:
-Accessories
-Coats&Jackets
-FancyDress
-Jeans
-Joggers
-Jumpers&Cardigans
-Nightwear&Slippers
-Shirts
-Shorts
-Socks
-Sportswear
-Suits&Tailoring
-Sweatshirts&Hoodies
-Swimwear
-Trousers
-T-Shirts&Polos
-Underwear
+Accessories,
+Coats&Jackets,
+FancyDress,
+Jeans,
+Joggers,
+Jumpers&Cardigans,
+Nightwear&Slippers,
+Shirts,
+Shorts,
+Socks,
+Sportswear,
+Suits&Tailoring,
+Sweatshirts&Hoodies,
+Swimwear,
+Trousers,
+T-Shirts&Polos,
+Underwear,
 
 Women categories
-Accessories
-Coats & Jackets
-Dresses
-Fancy Dress
-Jeans & Jeggings
-Jumpers & Cardigans
-Jumpsuits & Playsuits
-Leggings
-Maternity
-Nightwear & Slippers
-Shirts & Blouses
-Skirts & Shorts
-Sportswear & Joggers
-Socks & Tights
-Swimwear
-Tops
-Trousers
+Accessories,
+Coats & Jackets,
+Dresses,
+Fancy Dress,
+Jeans & Jeggings,
+Jumpers & Cardigans,
+Jumpsuits & Playsuits,
+Leggings,
+Maternity,
+Nightwear & Slippers,
+Shirts & Blouses,
+Skirts & Shorts,
+Sportswear & Joggers,
+Socks & Tights,
+Swimwear,
+Tops,
+Trousers,
 
 <h2>Usage</h2>
 Similar to the first one but here
