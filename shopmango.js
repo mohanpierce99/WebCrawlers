@@ -1,90 +1,100 @@
 const express=require('express');
 
-const bodyparser=require('body-parser');
 
 var url = require('url');
 
 const router=express.Router();
 
-const api=require('./task1.js');
+const api=require('./genericcode.js');
 
-router.use(bodyparser.json());
+const arrayofimages=require('./arrayofimages.js');
+
+
 
 var shopmangomen=api.init("men");
 
+var shopmangomenarr=arrayofimages.init("men");
+
+var shopmangowomenarr=arrayofimages.init("women");
+
 var shopmangowomen=api.init("women");
 
-router.get('/men',async (req,res)=>{
-    if(!("type" in req.query))
-     res.status(401).send("Please specify a category");
-
-    if(req.query.type.toLowerCase()=="clothing"){
-
-    if(!("ct" in req.query)){
-        console.log("ct not available")
-        var result=await shopmangomen("clothing",undefined,res);
-        res.end();
-        return;
+router.use(function(req, res, next) {
+    req.getUrl = function() {
+      return req.protocol + "://" + req.get('host') + req.originalUrl;
     }
-     var cts=req.query.ct.split(',');
+    return next();
+  });
 
-     var result=await shopmangomen("clothing",cts,res);
-     res.end();
-
+router.use(['/men','/women','/array/men','/array/women'],(req,res,next)=>{
+    if(!("type" in req.query)){
+        res.status(401).send("Please specify a type");
+        return ;
     }
-    else if(req.query.type.toLowerCase()=="accessories"){
-        if(!("ct" in req.query)){
-            var result=await shopmangomen("accessories",undefined,res);
-            res.end();
-            return;
-        }
-         var cts=req.query.ct.split(',');
-            console.log(cts);
-         var result=await shopmangomen("accessories",cts,res);
-          res.end();
-        }
-        else{
-          res.send("Wrong input Type is categories or accessories and enter the category in the ct param");
-        }
-
+    next();
 });
 
+router.use(['/men','/women','/array/men','/array/women'],async (req,res,next)=>{
+  
+     if(!("ct" in req.query)){
+         console.log(req.url);
+         console.log("hit");
+         if(~req.getUrl().indexOf("women"))
+         await shopmangowomen(req.query.type,undefined,res,req.query.browser);
+         else{
+             await shopmangomen(req.query.type,undefined,res,req.query.browser);
+
+         }
+         return ;
+    }
+    next();
+});
+
+router.get('/men',async (req,res)=>{
+    if(req.query.type.toLowerCase()==="clothing"||"accessories"){
+     var cts=req.query.ct.split(',');
+     var result=await shopmangomen(req.query.type,cts,res,req.query.browser);
+    }
+    else
+          res.send("Wrong input Type is clothing or accessories and enter the category in the ct param");
+        
+
+});
 
 router.get('/women',async (req,res)=>{
-    if(!("type" in req.query))
-     res.status(401).send("Please specify a category");
 
-    if(req.query.type.toLowerCase()=="clothing"){
-
-    if(!("ct" in req.query)){
-        console.log("ct not available")
-        var result=await shopmangowomen("clothing",undefined,res);
-        res.end();
-        return;
-    }
-     var cts=req.query.ct.split(',');
-
-     var result=await shopmangowomen("clothing",cts,res);
-     res.end();
-
-    }
-    else if(req.query.type.toLowerCase()=="accessories"){
-        if(!("ct" in req.query)){
-            var result=await shopmangowomen("accessories",undefined,res);
-            res.end();
-            return;
-        }
-         var cts=req.query.ct.split(',');
-            console.log(cts);
-         var result=await shopmangowomen("accessories",cts,res);
-          res.end();
-        }  else{
-            res.send("Wrong input Type is categories or accessories and enter the category in the ct param");
-          }
+    if(req.query.type.toLowerCase()==="clothing"||"accessories"){
+        var cts=req.query.ct.split(',');
+        var result=await shopmangowomen(req.query.type,cts,res,req.query.browser);
+       }
+       else
+             res.send("Wrong input Type is clothing or accessories and enter the category in the ct param");
 
 });
 
+router.get('/array/men',async (req,res)=>{
 
+    if(req.query.type.toLowerCase()==="clothing"||"accessories"){
+     var cts=req.query.ct.split(',');
+     var result=await shopmangomenarr(req.query.type,cts,res,req.query.browser);
+    }
+        else{
+          res.send("Wrong input Type is clothing or accessories and enter the category in the ct param");
+        }
+
+});
+
+router.get('/array/women',async (req,res)=>{
+
+    if(req.query.type.toLowerCase()==="clothing"||"accessories"){
+     var cts=req.query.ct.split(',');
+     var result=await shopmangowomenarr(req.query.type,cts,res,req.query.browser);
+    }
+        else{
+          res.send("Wrong input Type is clothing or accessories and enter the category in the ct param");
+        }
+
+});
 
 
 module.exports=router;

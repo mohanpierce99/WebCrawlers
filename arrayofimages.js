@@ -5,11 +5,11 @@ const women = 'https://shop.mango.com/in/women';
 
 var count=0;
 
-async function crawl(link, type, cat,res,bugfix) {
+async function crawl(link, type, cat,res,headless=false) {
 
   try {
     const browser = await puppeteer.launch({
-      headless: false
+      headless
     });
     var page = await browser.newPage();
     await page.setViewport({
@@ -47,24 +47,33 @@ async function crawl(link, type, cat,res,bugfix) {
     if (cat) {
       let i = 0;
       for (const data of cat) {
-        console.log(cat+"to be searched");
-        var found = categories.map(toLower).indexOf(data);
-        console.log(categories[found]);
-        if (~found)
-          toCrawl.push([await page.evaluate(x => x.href, links[found]), data]);
-        i += 1;
+          console.log(cat + "to be searched");
+          let found = categories.map(toLower).map(trim).map((x,i)=>x==trim(data.toLowerCase())?i:-1).filter((x)=>x!=-1)[0];
+          console.log(categories[found]);
+          console.log(found);
+          if(found==undefined){continue;}
+          if (~found){
+              toCrawl.push([await page.evaluate(x => x.href, links[found]), categories[found]]);
+          }
+        
+          i += 1;
       }
-    } else {
+  } else {
       let i = 0;
       for (const data of links) {
-        toCrawl.push([await page.evaluate(x => x.href, data), categories[i]]);
-        i += 1;
+          toCrawl.push([await page.evaluate(x => x.href, data), categories[i]]);
+          i += 1;
       }
-    }
-   if(!toCrawl.length){
-     res.write("Wrong input Type is categories or accessories and enter the category in the ct param");
-     return ;
-   }
+  }
+  console.log("hello world",toCrawl);
+
+  if (!toCrawl.length) {
+      console.log("hit");
+      res.write("Wrong input Type is clothing or accessories and enter the category in the ct param");
+      await browser.close();
+      res.end();
+      return;
+  }
     
     console.log(toCrawl);
 
@@ -77,8 +86,38 @@ async function crawl(link, type, cat,res,bugfix) {
         visible: true
       });
       await (await page.$('#navColumns4')).click();
-      await page.waitFor(2300);
+   await page.evaluate(()=>{
+        return new Promise((rs,rj)=>{
 
+
+            function scrollTo(c,e,d){d||(d=easeOutCuaic);var a=document.documentElement;
+          if(0===a.scrollTop){var b=a.scrollTop;++a.scrollTop;a=b+1===a.scrollTop--?a:document.body}
+          b=a.scrollTop;0>=e||("object"===typeof b&&(b=b.offsetTop),
+          "object"===typeof c&&(c=c.offsetTop),function(a,b,c,f,d,e,h){
+          function g(){0>f||1<f||0>=d?a.scrollTop=c:(a.scrollTop=b-(b-c)*h(f),
+          f+=d*e,setTimeout(g,e))}g()}(a,b,c,0,1/e,20,d))};
+          function easeOutCuaic(t){t--;return t*t*t+1;}
+
+     
+          scrollTo(document.body.offsetHeight,2000);
+          
+          setTimeout(recursiveScroll,2700);
+          
+           
+            function recursiveScroll(){
+              console.error(window.innerHeight+window.scrollY,document.body.offsetHeight);
+              if(window.innerHeight+window.scrollY>=document.body.offsetHeight){
+                rs("The end");
+                return;
+              }else{    
+                    scrollTo(document.body.offsetHeight,2000);
+                         if(window.innerHeight+window.scrollY>=document.body.offset)
+                               return;     
+                setTimeout(recursiveScroll,2700);
+              }
+            }
+          })
+      });
       var cardarr = await page.$$('.aZ-72');
       console.log(cardarr.length + " for " + data[1]);
       count+=cardarr.length;
@@ -127,8 +166,10 @@ async function crawl(link, type, cat,res,bugfix) {
         json.items.push(item);
 
       }
+      console.log(json);
         res.write(JSON.stringify(json));
     }
+    res.end();
     await browser.close();
 
     return count;
@@ -150,4 +191,8 @@ module.exports = {
       return crawl.bind(null, men)
     return crawl.bind(null, women);
   }
+}
+
+function trim(d){
+  return d.replace(/\s/g,'');
 }
