@@ -179,6 +179,19 @@ https://direct.asda.com/on/demandware.store/Sites-ASDA-Site/default/SearchDEP-Sh
 
 Easy! Doing this in a loop for all the pages needed would finish the job
 
+<h6>Notice !! </h6>
+
+The api can be accessed in a browser as well as postman or using http requests
+
+Post man might be unable to beautify the json to make it readable,download the json from postman and paste it in ur favourite editor and use ur beautify plugin to beautify it or using any other online beautifier
+
+<img src="Capture.PNG">
+ Always have that button in that state it means dont wrap lines when we do the route call for the whole clothing database atleast 3200 items are returned and json goes upto 2mb and 21k lines if not wrapppd postman starts to lag,so  please make sure u dont wrap lines by having the button in that state
+
+
+HTTP requests and browsers are completely fine those make sure to parse them to view them beauitfully !
+
+
 
 
 
