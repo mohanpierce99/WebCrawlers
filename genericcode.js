@@ -22,9 +22,9 @@ async function crawl(link, type, cat, res,headless=false) {
             width: 1366,
             height: 768
         });
-        await page.goto(link);
+        await page.goto(link); //goes to men or women link of the site shopmango
 
-
+//Filtering and finding the links to crawl
 
         var categories = [];
 
@@ -53,8 +53,7 @@ async function crawl(link, type, cat, res,headless=false) {
             for (const data of cat) {
                 console.log(cat + "to be searched");
                 let found = categories.map(toLower).map(trim).map((x,i)=>x==trim(data.toLowerCase())?i:-1).filter((x)=>x!=-1)[0];
-                console.log(categories[found]);
-                console.log(found);
+           
                 if(found==undefined){continue;}
                 if (~found){
                     toCrawl.push([await page.evaluate(x => x.href, links[found]), categories[found]]);
@@ -71,7 +70,6 @@ async function crawl(link, type, cat, res,headless=false) {
         }
 
         if (!toCrawl.length) {
-            console.log("hit");
             res.write("Wrong input Type is clothing or accessories and enter the category in the ct param");
             await browser.close();
             res.end();
@@ -88,24 +86,27 @@ async function crawl(link, type, cat, res,headless=false) {
 
         await page.goto(toCrawl[0][0]);
         await page.setRequestInterception(true); //Eavesdropping Network requests to find the golden start
-        await page.evaluate(x=>window.location.reload());
-        page.on('request',x=>brainNetwork(control,res,toCrawl,x));
+        await page.evaluate(x=>window.location.reload()); // reloading the first page again to eavesdrop
+         //Bug fix in puputeer 
+        page.on('request',x=>brainNetwork(control,res,toCrawl,x)); 
+        //on every network request brainNetwork parses it knows when to filter and when to accept when it accepts one request
 
         async function brainNetwork(control,responser,toCrawl,interceptedRequest){
             var i=1;
-            let bootstrap1 = interceptedRequest.url().match(/(idSubSection)|(pageNum)/g);
-            if (control.gate || !bootstrap1) {
-                interceptedRequest.continue();
+            let bootstrap1 = interceptedRequest.url().match(/(idSubSection)|(pageNum)/g); //detection
+            if (control.gate || !bootstrap1) {  
+                interceptedRequest.continue();  //if not detected continue
                 return ;
             } 
             if (control.bootstrap = interceptedRequest.url().match(/(idSubSection)|(pageNum)/g).length==2 && !control.gate) {
-                control.gate = true;
+                control.gate = true;   //if detected close the gate Mutual exclusion when this is true no other similar detective are processed
                 control.bootstrap = interceptedRequest.url();
                 interceptedRequest.continue();
                 let category={
                     title:"",
                  items:[]
                 }
+                //goes to infinite loop performs the attack
                 while(1){
                     let response= await axios.get(control.bootstrap.replace(/pageNum=\d+/,"pageNum="+i));
                     category.title=response.data.titleh1||response.data.products.titleh1;
@@ -119,11 +120,11 @@ async function crawl(link, type, cat, res,headless=false) {
                     i+=1;
                 }
                 console.log(category);
-                responser.write(JSON.stringify(category));
+                responser.write(JSON.stringify(category)); //writing back
                 console.log(control.crawlPointer,toCrawl.length)
-                if(control.crawlPointer<toCrawl.length){
+                if(control.crawlPointer<toCrawl.length){  // once done crawl to the next page
                     master=[];
-                    control.gate=false;
+                    control.gate=false;  // open the gate so it can detect again
               console.log("End of one crawl");
               try{
                 await page.goto(toCrawl[control.crawlPointer][0]);
@@ -133,6 +134,7 @@ async function crawl(link, type, cat, res,headless=false) {
                     i=1;
                 }else{
                     console.log("loop done");
+                    //once all sites are scraped close the browser
                     await browser.close();
                     console.log(count+" items scrapped");
                     res.end();
@@ -155,14 +157,14 @@ function toLower(d) {
 }
 
 
-function JSONparser(data){
+function JSONparser(data){ //json parser given a json it filters out whats needed
     var master=[];
     let title=data.titleh1;
     let groups=data.groups || data.products.groups;
 if(!groups){
-    return false;
+    return false;   //This condition ends the infinite loop if this function returns false at any point the infinite loop ends
 }
-if(!groups.length)
+if(!groups.length)  //This condition ends the infinite loop if this function returns false at any point the infinite loop ends
     return false;
 let items=groups[0].garments;
     for(x of Object.keys(items)){

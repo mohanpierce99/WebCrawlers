@@ -17,9 +17,10 @@ async function crawl(link, type, cat,res,headless=false) {
     });
     await page.goto(link);
 
+//Goes to the link of men or women
 
     var categories = [];
-
+// scraping all categories and filtering categories the user had requested
 
     if (type == "clothing") {
         await page.waitForSelector(".category-landing__sidebar", {
@@ -44,10 +45,8 @@ async function crawl(link, type, cat,res,headless=false) {
     if (cat) {
       let i = 0;
       for (const data of cat) {
-          console.log(data + "to be searched");
+          console.log(data + " to be searched ");
           let found = categories.map(toLower).map(trim).map((x,i)=>x==trim(data.toLowerCase())?i:-1).filter((x)=>x!=-1)[0];
-          console.log(categories[found]);
-          console.log(found);
           if(found==undefined){continue;}
           if (~found){
               toCrawl.push([await page.evaluate(x => x.href, links[found]), categories[found]]);
@@ -62,7 +61,6 @@ async function crawl(link, type, cat,res,headless=false) {
           i += 1;
       }
   }
-  console.log("hello world",toCrawl);
 
   if (!toCrawl.length) {
       console.log("hit");
@@ -72,15 +70,20 @@ async function crawl(link, type, cat,res,headless=false) {
       return;
   }
     
-    console.log(toCrawl);
+    console.log(toCrawl);  //To crawl hyperlinks links
 
     await browser.close();
 let master=[];
 
     for (let data of toCrawl) {
+      //getting categoryid from url
 let ctid=data[0].match(/\/\w+\d+/)[0].slice(1);
    var result={category:data[1],products:[]};
+
+   //replacing with the api
+
   let response= await axios.get(`https://direct.asda.com/on/demandware.store/Sites-ASDA-Site/default/SearchDEP-Show?cgid=${ctid}&start=0&sz`);
+//json parse
 
   response.data.productSearch.products.forEach((f)=>{
     var json={};
@@ -97,6 +100,7 @@ console.log(result);
 master.push(result);
  
     }
+    //writin back to the request
     res.write(JSON.stringify(master));
     return count;
   } catch (e) {
