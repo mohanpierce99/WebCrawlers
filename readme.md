@@ -98,8 +98,10 @@ https://shop.mango.com/services/cataloglist/filtersProducts/IN/he/sections_he.pr
 
 This process is repeated for page 2(click to see the response thats gonna be processed)
 https://shop.mango.com/services/cataloglist/filtersProducts/IN/he/sections_he.prendas_he/?idSubSection=abrigos_he&menu=familia;106&pageNum=2
+
+By incrementing the pagenos
 and so on
-untill at one point response would be null
+untill at one point for a page no response would be null,we break out of the infinite loop
 Now that we have scraped all the data we move to next link in the stack and so on 
 
 Everything is asynchronous and all the racial conditions have been exceptionally handled
