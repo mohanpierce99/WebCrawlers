@@ -192,6 +192,18 @@ Post man might be unable to beautify the json to make it readable,download the j
 HTTP requests and browsers are completely fine those make sure to parse them to view them beauitfully !
 
 
+<h3>File structure</h3>
+<ul>
+<li>app.js</li> Main server
+<li>shopmango.js</li> Routes for shopmango
+<li>george.js</li> Routes for george
+<li>genericcode.js</li> Shopmango crawler
+<li>genericcode2.js</li> george crawler
+<li>arrayofimages.js</li> Hover infinite scroll logic for shopmango
+
+</ul>
+
+
 
 
 
