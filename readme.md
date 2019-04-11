@@ -154,8 +154,9 @@ Trousers,
 
 <h2>Usage</h2>
 Similar to the first one but here
-http://localhost:3472/george/men?type=clothing&ct="coats%26amp;jackets"
+http://localhost:3472/george/women?type=clothing&ct=Swimwear
 
+http://localhost:3472/george/women?type=clothing gives all women clothing
 
 <h3>Method</h3>
 
