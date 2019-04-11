@@ -92,6 +92,18 @@ Now that we have scraped all the data we move to next link in the stack and so o
 
 Everything is asynchronous and all the racial conditions have been exceptionally handled
 
+As all the resources are lazy loaded To scrape the data from the website's dom is inefficient as there are an array of images per product and they only get loaded into the dom only when u hover over them,this is an efficient solution
+
+However ih've written the algorithm for hover and getting data from dom as well 
+
+http://localhost:3472/shopmango/women/array?type=clothing&ct=Jumpsuits
+
+It does an infinite scroll to trigger and load all the lazy loaded data and does an automated hover of 300ms on each product to load in their data
+
+But its slow compared to the previous algo.
+
+
+
 
 
 
