@@ -31,7 +31,9 @@ git clone this Repo <a href='https://github.com/mohanpierce99/WebCrawlers-MadStr
 <h4>Usage Task-1 Shopmango </h4>
 Scaps data from https://shop.mango.com/in/women & https://shop.mango.com/in/men
 
-<h3 style='color:red;text-align:center'>Categories with spaces should be given as "coats%26amp;jackets" (double quotes neccessary)  for Coats & jackets</h3>
+<h6 style='color:red;text-align:center'>Categories with spaces should be given as (double quotes neccessary) "coats%26amp;jackets" for Coats & jackets </h6>
+sample: http://localhost:3472/george/men?type=clothing&ct="coats%26amp;jackets"
+
 
 &ct=//replace with categories below ts
 
@@ -108,7 +110,9 @@ But its slow compared to the previous algo.
 
 
 <h4>Task 2 -George </h4>
-<h3 style='color:red;text-align:center'>Categories with spaces should be given as "coats%26amp;jackets" (double quotes neccessary)  for Coats & jackets</h3>
+<h6 style='color:red;text-align:center'>Categories with spaces should be given as (double quotes neccessary)  "coats%26amp;jackets"  for Coats & jackets</h6>
+sample: http://localhost:3472/george/men?type=clothing&ct="coats%26amp;jackets"
+
 
 Men categories:
 Accessories
@@ -150,7 +154,7 @@ Trousers
 
 <h2>Usage</h2>
 Similar to the first one but here
-http://localhost:3472/george/men?type=clothing&ct=Coats & Jackets 
+http://localhost:3472/george/men?type=clothing&ct="coats%26amp;jackets"
 
 
 <h3>Method</h3>
