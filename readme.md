@@ -114,7 +114,7 @@ But its slow compared to the previous algo.
 sample: http://localhost:3472/george/men?type=clothing&ct="coats%26amp;jackets"
 
 
-Men categories:
+Men categories :
 Accessories,
 Coats&Jackets,
 FancyDress,
@@ -133,7 +133,7 @@ Trousers,
 T-Shirts&Polos,
 Underwear,
 
-Women categories
+Women categories :
 Accessories,
 Coats & Jackets,
 Dresses,
