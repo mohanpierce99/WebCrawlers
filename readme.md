@@ -96,7 +96,7 @@ As all the resources are lazy loaded To scrape the data from the website's dom i
 
 However ih've written the algorithm for hover and getting data from dom as well 
 
-http://localhost:3472/shopmango/women/array?type=clothing&ct=Jumpsuits
+http://localhost:3472/shopmango/array/women?type=clothing&ct=Jumpsuits
 
 It does an infinite scroll to trigger and load all the lazy loaded data and does an automated hover of 300ms on each product to load in their data
 
