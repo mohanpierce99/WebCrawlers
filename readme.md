@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<h3>Task 1 -Shop mango</h3>
-=======
 <h3>Installation</h3>
 First we require Nodejs and npm to be installed in the corresponding system
 <br>
@@ -187,6 +184,5 @@ Easy! Doing this in a loop for all the pages needed would finish the job
 
 
 
->>>>>>> aa2dcf79dacd1f7ccc04b58c89ec5826e76c9e9f
 
 
