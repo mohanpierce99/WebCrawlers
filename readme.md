@@ -1,3 +1,5 @@
+Sample scraped files are in the directory for the clothing section of men and women for both sites shop mango and george
+
 <h3>Installation</h3>
 First we require Nodejs and npm to be installed in the corresponding system
 <br>
