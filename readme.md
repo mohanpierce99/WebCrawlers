@@ -39,11 +39,16 @@ this will download all the dependancies
 <h4>Usage Task-1 Shopmango </h4>
 Scaps data from https://shop.mango.com/in/women & https://shop.mango.com/in/men
 
+
+
 <h6 style='color:red;text-align:center'>Categories with spaces should be given as (double quotes neccessary) "coats%26amp;jackets" for Coats & jackets </h6>
 sample: http://localhost:3472/george/men?type=clothing&ct="coats%26amp;jackets"
 
-
+<br>
+<br>
+<br>
 &ct=//replace with categories below ts
+sample :  http://localhost:3472/shopmango/men?type=clothing&ct=blazers
 
 Women categories :
 
@@ -73,9 +78,9 @@ Trousers,
 Jeans,
 Underwear,
 
-http://localhost:3472/shopmango/women?type=clothing, Brings back all data from all the categories
-http://localhost:3472/shopmango/women?type=clothing&ct=t-shirts,jackets,suits, brings back the mentioned categories
-http://localhost:3472/shopmango/women?type=clothing&ct=Cardigans and sweaters, brings back cardigans and sweaters
+http://localhost:3472/shopmango/women?type=clothing  , Brings back all data from all the categories
+http://localhost:3472/shopmango/women?type=clothing&ct=t-shirts,jackets,suits  , brings back the mentioned categories
+http://localhost:3472/shopmango/women?type=clothing&ct=Cardigans%26amp;eaters  , brings back cardigans and sweaters
 Use the categories from above and they are case insensitive while processing so no problems tre
 
 http://localhost:3472/shopmango/women?type=clothing&ct=Jumpsuits,jackets,suits&browser=true By default chromium browser is opened to simulate the automation however u can turn this off by using browser=true
@@ -122,7 +127,11 @@ But its slow compared to the previous algo.
 <h4>Task 2 -George </h4>
 <h6 style='color:red;text-align:center'>Categories with spaces should be given as (double quotes neccessary)  "coats%26amp;jackets"  for Coats & jackets</h6>
 sample: http://localhost:3472/george/men?type=clothing&ct="coats%26amp;jackets"
-
+<br>
+<br>
+<br>
+&ct=//replace with categories below ts
+sample :  http://localhost:3472/george/men?type=clothing&ct=jeans
 
 Men categories :
 Accessories,
