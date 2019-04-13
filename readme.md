@@ -24,6 +24,12 @@ npm install
 this will download all the dependancies
 
 Now you would have all the files in place !
+
+Now run
+
+node app.js
+
+this will bootstrap the rest server
  
  
  <h4>Features of the rest api</h4>
