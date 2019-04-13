@@ -11,17 +11,19 @@ First we require Nodejs and npm to be installed in the corresponding system
 Once installed lets get started !!
 
 
-npm init
+git clone this Repo copy this command
 
-npm i webcrawlers-mad-street-den
+git clone ttps://github.com/mohanpierce99/WebCrawlers-MadStreetDen
 
+cd WebCrawlers-MadStreetDen
 
-NPM is the package manager like pip in python and this module is published in npms directory
+next navigate to the root of the project in cmd and type
 
+npm install
 
- Now you would have all the files in place !
- 
- To run the rest api server all u need to do is type node app.js in the root dir of the project in a cmd. This would initialize the express server.
+this will download all the dependancies
+
+Now you would have all the files in place !
  
  
  <h4>Features of the rest api</h4>
