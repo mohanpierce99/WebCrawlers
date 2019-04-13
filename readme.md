@@ -49,7 +49,7 @@ sample: http://localhost:3472/george/men?type=clothing&ct="coats%26amp;jackets"
 <br>
 &ct=//replace with categories below ts
 sample :  http://localhost:3472/shopmango/men?type=clothing&ct=blazers
-
+<hr>
 Women categories :
 
 Coats,
@@ -63,7 +63,7 @@ T-shirts and tops,
 Trousers,
 Jeans,
 Skirts,
-
+<hr>
 Men categories :
 
 Coats,
@@ -77,10 +77,11 @@ T-shirts,
 Trousers,
 Jeans,
 Underwear,
-
+<hr>
 http://localhost:3472/shopmango/women?type=clothing  , Brings back all data from all the categories
+http://localhost:3472/shopmango/men?type=clothing&ct=t-shirts      Brings back tshirts in men
 http://localhost:3472/shopmango/women?type=clothing&ct=t-shirts,jackets,suits  , brings back the mentioned categories
-http://localhost:3472/shopmango/women?type=clothing&ct=Cardigans%26amp;eaters  , brings back cardigans and sweaters
+http://localhost:3472/shopmango/women?type=clothing&ct=Cardigans%26amp;sweaters  , brings back cardigans and sweaters
 Use the categories from above and they are case insensitive while processing so no problems tre
 
 http://localhost:3472/shopmango/women?type=clothing&ct=Jumpsuits,jackets,suits&browser=true By default chromium browser is opened to simulate the automation however u can turn this off by using browser=true
@@ -132,7 +133,7 @@ sample: http://localhost:3472/george/men?type=clothing&ct="coats%26amp;jackets"
 <br>
 &ct=//replace with categories below ts
 sample :  http://localhost:3472/george/men?type=clothing&ct=jeans
-
+<hr>
 Men categories :
 Accessories,
 Coats&Jackets,
@@ -152,6 +153,7 @@ Trousers,
 T-Shirts&Polos,
 Underwear,
 
+<hr>
 Women categories :
 Accessories,
 Coats & Jackets,
@@ -170,13 +172,14 @@ Socks & Tights,
 Swimwear,
 Tops,
 Trousers,
-
+<hr>
 <h2>Usage</h2>
 Similar to the first one but here
 http://localhost:3472/george/women?type=clothing&ct=Swimwear
 
 http://localhost:3472/george/women?type=clothing gives all women clothing
 
+http://localhost:3472/george/men?type=clothing&ct=jeans
 <h3>Method</h3>
 
 Similar to the first one, here tracking the vulnerabity was easier and it followed a pattern
