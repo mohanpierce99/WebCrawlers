@@ -13,7 +13,7 @@ Once installed lets get started !!
 
 git clone this Repo copy this command
 
-git clone ttps://github.com/mohanpierce99/WebCrawlers-MadStreetDen
+git clone https://github.com/mohanpierce99/WebCrawlers-MadStreetDen
 
 cd WebCrawlers-MadStreetDen
 
