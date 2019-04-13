@@ -1,12 +1,12 @@
 {
-  "name": "taskmadstreetden",
-  "version": "1.0.1",
-  "description": "",
+  "name": "webcrawlers-mad-street-den",
+  "version": "1.0.3",
+  "description": "Sample scraped files are in the directory for the clothing section of men and women for both sites shop mango and george",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Mohan pierce <itsmohanpierce@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
@@ -14,5 +14,18 @@
     "express": "^4.16.4",
     "puppeteer": "^1.14.0",
     "querystring": "^0.2.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohanpierce99/WebCrawlers-MadStreetDen.git"
+  },
+  "keywords": [
+    "webcrawlers",
+    "scarping"
+  ],
+  "bugs": {
+    "url": "https://github.com/mohanpierce99/WebCrawlers-MadStreetDen/issues"
+  },
+  "homepage": "https://github.com/mohanpierce99/WebCrawlers-MadStreetDen#readme"
 }
