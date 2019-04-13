@@ -11,8 +11,9 @@ First we require Nodejs and npm to be installed in the corresponding system
 Once installed lets get started !!
 
 
+npm init
 
-npm i taskmadstreetden
+npm i webcrawlers-mad-street-den
 
 
 NPM is the package manager like pip in python and this module is published in npms directory
