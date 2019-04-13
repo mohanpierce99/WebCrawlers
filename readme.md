@@ -10,14 +10,13 @@ First we require Nodejs and npm to be installed in the corresponding system
 
 Once installed lets get started !!
 
-git clone this Repo <a href='https://github.com/mohanpierce99/WebCrawlers-MadStreetDen.git'>Copy this address</a>
-<br>
-<br>
-next navigate to the root of the project in cmd and type
 
-npm install
 
-this will download all the dependancies
+npm i taskmadstreetden
+
+
+NPM is the package manager like pip in python and this module is published in npms directory
+
 
  Now you would have all the files in place !
  
