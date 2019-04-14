@@ -51,7 +51,7 @@ Scaps data from https://shop.mango.com/in/women & https://shop.mango.com/in/men
 
 <br>
 <br>
-&ct=//replace with categories below,  and everything is caseinsensitive and dont leave any white spaces
+<h2>&ct=//replace with categories below,  and everything is caseinsensitive and dont leave any white spaces</h2>
 sample :  http://localhost:3472/shopmango/men?type=clothing&ct=blazers
 <hr>
 Women categories :
@@ -139,7 +139,7 @@ But its slow compared to the previous algo.
 
 
 <h4>Task 2 -George </h4>
-&ct=//replace with categories below 
+<h2>&ct=//replace with categories below,  and everything is caseinsensitive and dont leave any white spaces</h2>
 sample :  http://localhost:3472/george/men?type=clothing&ct=jeans
 <br>
 <br>
