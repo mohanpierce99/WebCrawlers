@@ -45,7 +45,10 @@ router.use(['/men','/women'],async (req,res,next)=>{
 
 router.get('/men',async (req,res)=>{
     if(req.query.type.toLowerCase()==="clothing"){
+        
         req.query.ct=req.query.ct.replace(/\"/g,"");
+        req.query.ct=req.query.ct.replace(/-/g,"&amp;");
+
      var cts=req.query.ct.split(',');
      var result=await georgemen(req.query.type,cts,res);
      res.end();
@@ -59,6 +62,8 @@ router.get('/men',async (req,res)=>{
 router.get('/women',async (req,res)=>{
 
     if(req.query.type.toLowerCase()==="clothing"){
+        req.query.ct=req.query.ct.replace(/\"/g,"");
+        req.query.ct=req.query.ct.replace(/-/g,"&amp;");
         var cts=req.query.ct.split(',');
         var result=await georgewomen(req.query.type,cts,res);
         res.end();

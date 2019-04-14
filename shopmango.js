@@ -51,6 +51,8 @@ router.use(['/men','/women','/array/men','/array/women'],async (req,res,next)=>{
 });
 
 router.get('/men',async (req,res)=>{
+  req.query.ct=req.query.ct.replace(/-/g,"and");
+  console.log(req.query.ct);
     if(req.query.type.toLowerCase()==="clothing"||"accessories"){
      var cts=req.query.ct.split(',');
      var result=await shopmangomen(req.query.type,cts,res,req.query.browser);
@@ -62,7 +64,7 @@ router.get('/men',async (req,res)=>{
 });
 
 router.get('/women',async (req,res)=>{
-
+  req.query.ct=req.query.ct.replace(/-/g,"and");
     if(req.query.type.toLowerCase()==="clothing"||"accessories"){
         var cts=req.query.ct.split(',');
         var result=await shopmangowomen(req.query.type,cts,res,req.query.browser);
@@ -73,7 +75,7 @@ router.get('/women',async (req,res)=>{
 });
 
 router.get('/array/men',async (req,res)=>{
-
+  req.query.ct=req.query.ct.replace(/-/g,"and");
     if(req.query.type.toLowerCase()==="clothing"||"accessories"){
      var cts=req.query.ct.split(',');
      var result=await shopmangomenarr(req.query.type,cts,res,req.query.browser);
@@ -85,7 +87,7 @@ router.get('/array/men',async (req,res)=>{
 });
 
 router.get('/array/women',async (req,res)=>{
-
+  req.query.ct=req.query.ct.replace(/-/g,"and");
     if(req.query.type.toLowerCase()==="clothing"||"accessories"){
      var cts=req.query.ct.split(',');
      var result=await shopmangowomenarr(req.query.type,cts,res,req.query.browser);
